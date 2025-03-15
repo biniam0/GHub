@@ -21,8 +21,8 @@ export const GameCard = ({ game }: GameCardProps) => {
             ></PlatformIconList>
             <CriticScore score={game.metacritic} />
           </HStack>
+          <Text>{game.released.split("-")[0]}</Text>
         </CardBody>
-        {/* <Text padding={8}>{game.released}</Text> */}
       </Card>
     </>
   );
