@@ -11,7 +11,7 @@ interface GameCardProps {
 export const GameCard = ({ game }: GameCardProps) => {
   return (
     <>
-      <Card borderRadius="10px" overflow="hidden">
+      <Card width="370px" borderRadius="10px" overflow="hidden">
         <Image src={getCroppedImageUrl(game.background_image)}></Image>
         <CardBody>
           <Heading fontSize="2xl">{game.name}</Heading>
@@ -22,7 +22,7 @@ export const GameCard = ({ game }: GameCardProps) => {
             <CriticScore score={game.metacritic} />
           </HStack>
         </CardBody>
-        <Text padding={8}>{game.released}</Text>
+        {/* <Text padding={8}>{game.released}</Text> */}
       </Card>
     </>
   );
