@@ -11,10 +11,10 @@ interface GameCardProps {
 export const GameCard = ({ game }: GameCardProps) => {
   return (
     <>
-      <Card width="370px" borderRadius="10px" overflow="hidden">
+      <Card borderRadius="10px" overflow="hidden">
         <Image src={getCroppedImageUrl(game.background_image)}></Image>
         <CardBody>
-          <Heading fontSize="2xl">{game.name}</Heading>
+          <Heading fontSize="20px">{game.name}</Heading>
           <HStack justifyContent={"space-between"}>
             <PlatformIconList
               platforms={game.parent_platforms.map((p) => p.platform)}
