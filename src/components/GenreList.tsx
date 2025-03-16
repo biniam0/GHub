@@ -7,13 +7,18 @@ import {
   SkeletonCircle,
   Stack,
   Button,
+  Badge,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 interface GenreListProps {
-  onSelectGenre: (genre: Genre) => void
+  onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({onSelectGenre: onSelectedGenre}: GenreListProps) => {
+const GenreList = ({
+  selectedGenre,
+  onSelectGenre: onSelectedGenre,
+}: GenreListProps) => {
   const { data, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
@@ -40,9 +45,27 @@ const GenreList = ({onSelectGenre: onSelectedGenre}: GenreListProps) => {
                 boxSize="30px"
                 borderRadius={8}
               ></Image>
-              <Button onClick={() => onSelectedGenre(genre)} fontSize="lg" key={genre.id} variant="link">
-                {genre.name}
-              </Button>
+              {selectedGenre?.id === genre.id ? (
+                <Badge>
+                  <Button
+                    onClick={() => onSelectedGenre(genre)}
+                    fontSize="lg"
+                    key={genre.id}
+                    variant="link"
+                  >
+                    {genre.name}
+                  </Button>
+                </Badge>
+              ) : (
+                <Button
+                  onClick={() => onSelectedGenre(genre)}
+                  fontSize="lg"
+                  key={genre.id}
+                  variant="link"
+                >
+                  {genre.name}
+                </Button>
+              )}
             </HStack>
           </ListItem>
         ))}
