@@ -3,11 +3,15 @@ import reactImg from "../assets/react.svg"
 import ColorModeSwitch from "./ColorModeSwitch"
 import SearchInput from "./SearchInput"
 
-const NavBar = () => {
+interface NavBarProps {
+  onSearch: (searchText: string) => void
+}
+
+const NavBar = ({onSearch}: NavBarProps) => {
   return (
     <HStack padding="20px">
         <Image src={reactImg}></Image>
-        <SearchInput />
+        <SearchInput onSearch={onSearch}/>
         <ColorModeSwitch />
     </HStack>
   )
