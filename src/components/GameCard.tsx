@@ -15,13 +15,13 @@ export const GameCard = ({ game }: GameCardProps) => {
       <Card borderRadius="10px" overflow="hidden">
         { game.background_image ? <Image src={getCroppedImageUrl(game.background_image)}></Image> : <Image src={noImage}/>}
         <CardBody>
-          <Heading fontSize="20px">{game.name}</Heading>
           <HStack justifyContent={"space-between"}>
             <PlatformIconList
               platforms={game.parent_platforms.map((p) => p.platform)}
             ></PlatformIconList>
             <CriticScore score={game.metacritic} />
           </HStack>
+          <Heading fontSize="20px" paddingY="5px">{game.name}</Heading>
           {game.released && <Text>{game.released.split("-")[0]}</Text>}
         </CardBody>
       </Card>
