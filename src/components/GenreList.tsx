@@ -8,6 +8,7 @@ import {
   Stack,
   Button,
   Badge,
+  Heading,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 interface GenreListProps {
@@ -23,6 +24,7 @@ const GenreList = ({
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <>
+    <Heading paddingY="10px" fontSize="3xl"> Genre </Heading>
       {isLoading && (
         <Stack>
           {skeletons.map((skeleton) => (
@@ -43,6 +45,7 @@ const GenreList = ({
               <Image
                 src={genre.image_background}
                 boxSize="30px"
+                objectFit="cover"
                 borderRadius={8}
               ></Image>
               {selectedGenre?.id === genre.id ? (
