@@ -10,10 +10,11 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 interface SSProps {
+  sortOrder: string
   onSelectSortOrder: (sortOrder: string) => void;
 }
 
-const SortSelector = ({ onSelectSortOrder }: SSProps) => {
+const SortSelector = ({ sortOrder, onSelectSortOrder }: SSProps) => {
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
@@ -22,6 +23,7 @@ const SortSelector = ({ onSelectSortOrder }: SSProps) => {
     { value: "-metacritic", label: "Popularity" },
     { value: "-rating", label: "Average rating" },
   ];
+  const currentSortOrder = sortOrders.find(order => order.value === sortOrder)
   return (
     <Box>
       <Menu>
@@ -30,7 +32,7 @@ const SortSelector = ({ onSelectSortOrder }: SSProps) => {
           rightIcon={<ChevronDownIcon />}
           fontWeight="normal"
         >
-          Order by: Relevance
+          Order by: {currentSortOrder ? currentSortOrder.label : "Relevance"}
         </MenuButton>
         <MenuList>
           {sortOrders.map(({ value, label }) => (
