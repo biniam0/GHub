@@ -13,20 +13,19 @@ import {
 import useGenres, { Genre } from "../hooks/useGenres";
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
 const GenreList = ({
-  selectedGenre,
-  onSelectGenre: onSelectedGenre,
+  selectedGenreId,
+  onSelectGenre: onSelectGenre,
 }: GenreListProps) => {
   const { data, isLoading, error } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <>
       <Heading paddingY="10px" fontSize="3xl">
-        {" "}
-        Genre{" "}
+        Genre
       </Heading>
       {isLoading && (
         <Stack>
@@ -51,10 +50,10 @@ const GenreList = ({
                 objectFit="cover"
                 borderRadius={8}
               ></Image>
-              {selectedGenre?.id === genre.id ? (
+              {selectedGenreId === genre.id ? (
                 <Badge>
                   <Button
-                    onClick={() => onSelectedGenre(genre)}
+                    onClick={() => onSelectGenre(genre)}
                     fontSize="lg"
                     key={genre.id}
                     variant="link"
@@ -66,7 +65,7 @@ const GenreList = ({
                 </Badge>
               ) : (
                 <Button
-                  onClick={() => onSelectedGenre(genre)}
+                  onClick={() => onSelectGenre(genre)}
                   fontSize="lg"
                   key={genre.id}
                   variant="link"
