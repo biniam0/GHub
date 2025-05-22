@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import usePlatforms from "../hooks/usePlatforms";
-import { Platform } from "../hooks/useGames";
+import { Platform } from "../hooks/usePlatforms";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
