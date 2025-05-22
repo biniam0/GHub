@@ -24,7 +24,10 @@ const GenreList = ({
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <>
-    <Heading paddingY="10px" fontSize="3xl"> Genre </Heading>
+      <Heading paddingY="10px" fontSize="3xl">
+        {" "}
+        Genre{" "}
+      </Heading>
       {isLoading && (
         <Stack>
           {skeletons.map((skeleton) => (
@@ -39,7 +42,7 @@ const GenreList = ({
       )}
 
       <List>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem paddingY="2.5px" key={genre.id}>
             <HStack key={genre.id}>
               <Image
