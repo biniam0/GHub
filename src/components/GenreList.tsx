@@ -1,4 +1,7 @@
 import {
+  Badge,
+  Button,
+  Heading,
   HStack,
   Image,
   List,
@@ -6,21 +9,14 @@ import {
   Skeleton,
   SkeletonCircle,
   Stack,
-  Button,
-  Badge,
-  Heading,
 } from "@chakra-ui/react";
-import useGenres, { Genre } from "../hooks/useGenres";
-interface GenreListProps {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
+import useGenres from "../hooks/useGenres";
+import useGameQueryStore from "../stores/gameQueryStore";
 
-const GenreList = ({
-  selectedGenreId,
-  onSelectGenre: onSelectGenre,
-}: GenreListProps) => {
+const GenreList = () => {
   const { data, isLoading, error } = useGenres();
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <>
@@ -53,7 +49,7 @@ const GenreList = ({
               {selectedGenreId === genre.id ? (
                 <Badge>
                   <Button
-                    onClick={() => onSelectGenre(genre)}
+                    onClick={() => setSelectedGenreId(genre.id)}
                     fontSize="lg"
                     key={genre.id}
                     variant="link"
@@ -65,7 +61,7 @@ const GenreList = ({
                 </Badge>
               ) : (
                 <Button
-                  onClick={() => onSelectGenre(genre)}
+                  onClick={() => setSelectedGenreId(genre.id)}
                   fontSize="lg"
                   key={genre.id}
                   variant="link"
