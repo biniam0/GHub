@@ -4,7 +4,7 @@ import ExpandableText from "../components/ExpandableText";
 import GameAttributes from "../components/GameAttributes";
 import useGame from "../hooks/useGame";
 import GameTrailer from "../components/GameTrailer";
-import GameScreenshots from "../components/GameScreenShots";
+import GameScreenshots from "../components/GameScreenshots";
 const GameDetailPage = () => {
   const { slug } = useParams();
   const { data: game, error, isLoading } = useGame(slug!);
