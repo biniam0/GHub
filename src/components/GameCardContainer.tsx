@@ -2,14 +2,20 @@ import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface GameCCProps {
-    children: ReactNode
+  children: ReactNode;
 }
-const GameCardContainer = ({children}: GameCCProps) => {
+const GameCardContainer = ({ children }: GameCCProps) => {
   return (
     <Box
       borderRadius="10px"
       overflow="hidden"
-    >{children}</Box>
+      _hover={{
+        transform: "scale(1.05)",
+        transition: "transform .15s ease-in",
+      }}
+    >
+      {children}
+    </Box>
   );
 };
 

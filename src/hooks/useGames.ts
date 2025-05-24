@@ -9,6 +9,9 @@ const apiClient = new APIClient<Game>("/games");
 export interface Game {
   id: number;
   name: string;
+  slug: string;
+  description: string;
+  description_raw: string;
   background_image: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
@@ -19,7 +22,7 @@ export interface Game {
 
 const useGames = () => {
   const gameQuery = useGameQueryStore((s) => s.gameQuery);
-  console.log(gameQuery)
+  console.log(gameQuery);
 
   return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],
