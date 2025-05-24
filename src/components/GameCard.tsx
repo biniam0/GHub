@@ -4,7 +4,6 @@ import {
   Heading,
   HStack,
   Image,
-  Skeleton,
   Text,
 } from "@chakra-ui/react";
 import { Game } from "../entities/Game";
