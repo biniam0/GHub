@@ -12,7 +12,8 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    // Check it later, this could be a disaster
+    // "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx"
   },

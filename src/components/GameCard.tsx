@@ -7,7 +7,7 @@ import {
   Skeleton,
   Text,
 } from "@chakra-ui/react";
-import { Game } from "../hooks/useGames";
+import { Game } from "../entities/Game";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
@@ -22,7 +22,7 @@ interface GameCardProps {
 export const GameCard = ({ game }: GameCardProps) => {
   return (
     <>
-      <Card borderRadius="10px" overflow="hidden" >
+      <Card borderRadius="10px" overflow="hidden">
         {game.background_image ? (
           <Image src={getCroppedImageUrl(game.background_image)}></Image>
         ) : (
