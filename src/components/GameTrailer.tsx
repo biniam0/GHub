@@ -13,7 +13,7 @@ const GameTrailer = ({ gameId }: GameTrailerProps) => {
   const base = data?.results[0];
 
   return base ? (
-    <video src={base.data[480]} poster={base.preview} controls />
+    <video src={base.data[480]} poster={base.preview} controls style={{borderRadius: "10px"}} />
   ) : null;
 };
 

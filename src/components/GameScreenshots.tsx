@@ -14,7 +14,7 @@ const GameScreenshots = ({ game_pk }: GameScreenshotsProps) => {
       <Heading paddingY={2} fontSize="34px">
         ScreenShots
       </Heading>
-      <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={3}>
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={1.5}>
         {data?.results.map((file) => (
           <Image
             key={file.id}
