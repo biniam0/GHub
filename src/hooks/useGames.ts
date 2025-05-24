@@ -9,7 +9,6 @@ const apiClient = new APIClient<Game>("/games");
 
 const useGames = () => {
   const gameQuery = useGameQueryStore((s) => s.gameQuery);
-  console.log(gameQuery);
 
   return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ["games", gameQuery],

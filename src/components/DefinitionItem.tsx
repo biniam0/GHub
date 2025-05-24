@@ -7,12 +7,14 @@ interface DefinitionItemProps {
 }
 
 const DefinitionItem = ({ term, children }: DefinitionItemProps) => {
- return <Box>
-    <Heading as="dt" fontSize="md" color="gray.600">
-      {term}
-    </Heading>
-    <dd>{children}</dd>
-  </Box>;
+  return (
+    <Box>
+      <Heading as="dt" fontSize="md" color="gray.600">
+        {term}
+      </Heading>
+      <dd>{children}</dd>
+    </Box>
+  );
 };
 
 export default DefinitionItem;
