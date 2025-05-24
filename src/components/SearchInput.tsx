@@ -8,6 +8,7 @@ const SearchInput = () => {
   const setSearchText = useGameQueryStore((s) => s.setSearchText);
   return (
     <form
+      style={{ width: "70%", textAlign: "center" }}
       onSubmit={(event) => {
         event.preventDefault();
         if (searchInput.current) setSearchText(searchInput.current.value);
